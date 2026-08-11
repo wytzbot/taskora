@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#087ea4">
+  <meta name="description" content="Taskora — your academic workload autopilot.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/icons/favicon.ico" sizes="any">
+  <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <title>Taskora</title>
+  <style>
+    :root{--bg:#f4f8fa;--surface:#fff;--surface2:#e8f3f7;--text:#10252e;--muted:#63777f;--line:#dbe7eb;--primary:#087ea4;--primary2:#00a9c7;--danger:#d94b55;--warn:#a86b00;--ok:#247a55;--shadow:0 12px 35px rgba(18,55,68,.09);--radius:22px}
+    *{box-sizing:border-box}html{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);-webkit-tap-highlight-color:transparent}
+    body{margin:0;min-height:100vh}button,input,textarea{font:inherit}button{cursor:pointer}
+    #app{min-height:100vh;max-width:760px;margin:auto;padding-bottom:92px}.screen{padding:18px 16px 30px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{font-weight:850;font-size:22px;letter-spacing:-.5px}.eyebrow{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    h1,h2,h3,p{margin-top:0}h1{font-size:30px;line-height:1.08;letter-spacing:-1px;margin-bottom:8px}h2{font-size:21px;letter-spacing:-.4px;margin-bottom:10px}h3{font-size:16px;margin-bottom:6px}.muted{color:var(--muted)}.tiny{font-size:12px}.spacer{height:14px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}.card+.card{margin-top:12px}
+    .hero{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;border:0}.hero .muted{color:rgba(255,255,255,.8)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{padding:14px;border-radius:18px;background:var(--surface2);border:1px solid var(--line)}.stat strong{display:block;font-size:21px}
+    .row{display:flex;align-items:center;gap:10px}.between{justify-content:space-between}.wrap{flex-wrap:wrap}
+    .btn{border:0;border-radius:15px;padding:12px 15px;font-weight:800;min-height:46px}.btn.primary{background:var(--primary);color:#fff}.btn.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--primary);padding-inline:6px}.btn.danger{background:#fff0f1;color:var(--danger)}
+    .btn:disabled{opacity:.5;cursor:not-allowed}.iconbtn{width:44px;height:44px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:20px}
+    .question{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:19px;padding:15px;margin:9px 0;box-shadow:0 7px 20px rgba(18,55,68,.06);color:var(--text)}.question .tag{font-size:11px;font-weight:800;color:var(--primary);margin-bottom:7px}.question strong{font-size:15px}
+    .task{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--line)}.task:last-child{border-bottom:0}.check{width:27px;height:27px;border:2px solid #aac0c8;border-radius:9px;background:transparent;flex:none}.check.done{background:var(--primary);border-color:var(--primary);color:#fff}.taskmain{min-width:0;flex:1}.tasktitle{font-weight:750}.taskmeta{font-size:12px;color:var(--muted);margin-top:3px}
+    .pill{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:800;background:var(--surface2);color:var(--primary)}.pill.danger{background:#fff0f1;color:var(--danger)}.pill.warn{background:#fff6df;color:var(--warn)}.pill.ok{background:#eaf7f0;color:var(--ok)}
+    .progress{height:9px;border-radius:999px;background:#dbe8ec;overflow:hidden}.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:inherit}
+    .input,.textarea{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:15px;padding:13px;color:var(--text);outline:none}.input:focus,.textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(8,126,164,.12)}.textarea{min-height:110px;resize:vertical}
+    .field{margin-bottom:13px}.field label{display:block;font-size:12px;font-weight:800;margin:0 0 7px}.selectlike{width:100%;appearance:none}
+    .bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px max(8px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));z-index:30}.navbtn{border:0;background:none;color:var(--muted);font-size:11px;font-weight:750;padding:7px 2px;border-radius:13px}.navbtn.active{color:var(--primary);background:var(--surface2)}.navicon{display:block;font-size:18px;margin-bottom:2px}
+    .fab{position:fixed;right:max(18px,calc((100vw - 760px)/2 + 18px));bottom:92px;width:56px;height:56px;border:0;border-radius:18px;background:var(--primary);color:#fff;font-size:28px;box-shadow:0 14px 28px rgba(8,126,164,.28);z-index:20}
+    .sheetback,.modalback{position:fixed;inset:0;background:rgba(7,27,34,.45);z-index:50;display:flex;align-items:flex-end}.sheet,.modal{width:min(760px,100%);margin:auto;background:var(--surface);border-radius:28px 28px 0 0;padding:18px;max-height:88vh;overflow:auto}.modalback{align-items:center;padding:16px}.modal{border-radius:26px;max-height:90vh}.handle{width:45px;height:5px;border-radius:9px;background:#cbd9dd;margin:0 auto 16px}.close{float:right;border:0;background:var(--surface2);width:38px;height:38px;border-radius:12px}
+    .toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:#10252e;color:white;padding:12px 15px;border-radius:14px;opacity:0;pointer-events:none;transition:.2s;z-index:100;max-width:90%;font-size:13px}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .loading{display:inline-block;width:17px;height:17px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-3px}@keyframes spin{to{transform:rotate(360deg)}}.hidden{display:none!important}
+    .empty{text-align:center;padding:28px 15px}.empty .emoji{font-size:34px;margin-bottom:8px}.divider{height:1px;background:var(--line);margin:15px 0}
+    @media(min-width:680px){.screen{padding:28px 22px 40px}.fab{bottom:100px}.grid.three{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast" class="toast"></div>
+<script type="module">
+import { TaskoraApp } from './data.js';
+new TaskoraApp().start();
+</script>
+</body>
+</html>

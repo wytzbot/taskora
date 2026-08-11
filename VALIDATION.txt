@@ -1,0 +1,2 @@
+Taskora v3 validation
+JavaScript syntax errors found: 0

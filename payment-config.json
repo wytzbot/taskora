@@ -1,0 +1,13 @@
+{
+  "international": {
+    "currency": "USD",
+    "amount": 2,
+    "checkoutUrl": "https://flutterwave.com/pay/7im9kkchrph0"
+  },
+  "nigeria": {
+    "currency": "NGN",
+    "amount": 2000,
+    "checkoutUrl": "https://flutterwave.com/pay/jvnbqnrpymcp"
+  },
+  "webhook": null
+}
